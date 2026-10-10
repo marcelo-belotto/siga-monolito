@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<ruleset name="Custom Ruleset"
+    xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
+
+    <description>
+        Regras customizadas para validação de complexidade ciclomática.
+    </description>
+
+    <!-- Importa a regra específica de Complexidade Ciclomática -->
+    <rule ref="category/java/design.xml/CyclomaticComplexity">
+        <properties>
+            <!-- Limite máximo de caminhos em um único método (Padrão: 10) -->
+            <property name="methodReportLevel" value="20" />
+            <!-- Limite máximo somado na classe inteira (Padrão: 80) -->
+            <property name="classReportLevel" value="100" />
+        </properties>
+    </rule>
+
+</ruleset>

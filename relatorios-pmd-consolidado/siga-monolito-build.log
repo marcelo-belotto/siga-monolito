@@ -1,0 +1,15 @@
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m----------------------------< [0;36mcom.poo:siga[0;1m >----------------------------[m
+[[1;34mINFO[m] [1mBuilding siga 0.0.1-SNAPSHOT[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-pmd-plugin:3.23.0:pmd[m [1m(default-cli)[m @ [36msiga[0;1m ---[m
+[[1;34mINFO[m] PMD version: 7.0.0
+[[1;34mINFO[m] Rendering content with [1morg.apache.maven.skins:maven-default-skin:jar:1.3 skin[m.
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  2.465 s
+[[1;34mINFO[m] Finished at: 2026-09-24T17:33:04-03:00
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m

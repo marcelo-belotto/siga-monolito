@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: siga-postgres-mono
+    environment:
+      POSTGRES_DB: sigadb
+      POSTGRES_USER: ${DB_USERNAME:-siga}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-siga}
+    ports:
+      - "5432:5432"
+    volumes:
+      - siga-pgdata:/var/lib/postgresql/data
+      - ./DDL_dump.sql:/docker-entrypoint-initdb.d/1-DDL_dump.sql
+      - ./backup_inserts.sql:/docker-entrypoint-initdb.d/2-backup_inserts.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USERNAME:-siga} -d sigadb"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build: .
+    container_name: siga-app-mono
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/sigadb
+      SPRING_DATASOURCE_USERNAME: ${DB_USERNAME:-siga}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD:-siga}
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      JWT_SECRET: ${JWT_SECRET:-secret-key-default-para-dev}
+      JWT_EXPIRATION: ${JWT_EXPIRATION:-1800000}
+      SWAGGER_ENABLED: ${SWAGGER_ENABLED:-true}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:8080}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: on-failure
+
+volumes:
+  siga-pgdata:
