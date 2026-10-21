@@ -1,0 +1,19 @@
+# Normaliza line endings para LF em todos os arquivos de texto ao fazer commit
+* text=auto eol=lf
+
+# Shell scripts DEVEM ter LF (nunca CRLF), senão falham em containers Linux
+*.sh text eol=lf
+mvnw text eol=lf
+gradlew text eol=lf
+
+# Arquivos binários — não converter
+*.jar binary
+*.class binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.zip binary
+*.gz binary
+*.tar binary

@@ -268173,32 +268173,34 @@ INSERT INTO public.turma_disciplina_professor (disciplina_id, id, professor_id, 
 -- Tabela: public.usuario (25 registros)
 --
 
-INSERT INTO public.usuario (ativo, bloqueado, data_expiracao_senha, id, primeiro_acesso, professor_id, tentativas_login, data_cadastro, codigo, email, login, nome_completo, role, senha) VALUES
-  (TRUE, FALSE, '2026-08-22', 1, FALSE, NULL, 0, '2026-05-24 09:45:23.285864', 'USR90689', 'carlos.almeida@horizonte.edu.br', 'admin', 'Carlos Henrique Almeida', 'ADMIN', '$2a$10$wtCOyqTrpkkiT1ITi3ukfeykkvL7LbnLBkOIgYwmJ8FWnbFEJMNFG'),
-  (TRUE, FALSE, '2026-05-25', 2, TRUE, NULL, 0, '2026-05-24 09:45:23.289566', 'USR48654', 'marcos.souza@horizonte.edu.br', 'admin2', 'Marcos Vieira Souza', 'ADMIN', '$2a$10$wtCOyqTrpkkiT1ITi3ukfeykkvL7LbnLBkOIgYwmJ8FWnbFEJMNFG'),
-  (TRUE, FALSE, '2026-05-25', 3, TRUE, NULL, 0, '2026-05-24 09:45:23.290994', 'USR84855', 'renata.oliveira@horizonte.edu.br', 'admin3', 'Renata Oliveira', 'ADMIN', '$2a$10$wtCOyqTrpkkiT1ITi3ukfeykkvL7LbnLBkOIgYwmJ8FWnbFEJMNFG'),
-  (TRUE, FALSE, '2026-05-25', 4, TRUE, NULL, 0, '2026-05-24 09:45:23.292401', 'USR38924', 'admin@horizonte.edu.br', 'sysadmin', 'Administrador Sistema', 'ADMIN', '$2a$10$wtCOyqTrpkkiT1ITi3ukfeykkvL7LbnLBkOIgYwmJ8FWnbFEJMNFG'),
-  (TRUE, FALSE, '2026-08-22', 5, FALSE, NULL, 0, '2026-05-24 09:45:23.293773', 'USR86837', 'juliana.lima@horizonte.edu.br', 'coord1', 'Juliana Araújo Lima', 'COORDENADOR', '$2a$10$jxaAxakQOtVtdsboO4GHQuzv0bTPeawwiNFk78BGvP6.6yFx7SCZu'),
-  (TRUE, FALSE, '2026-05-25', 6, TRUE, NULL, 0, '2026-05-24 09:45:23.295307', 'USR54731', 'ricardo.moura@horizonte.edu.br', 'coord2', 'Ricardo Santos Moura', 'COORDENADOR', '$2a$10$wtCOyqTrpkkiT1ITi3ukfeykkvL7LbnLBkOIgYwmJ8FWnbFEJMNFG'),
-  (TRUE, FALSE, '2026-05-25', 7, TRUE, NULL, 0, '2026-05-24 09:45:23.296531', 'USR85758', 'sandra.silva@horizonte.edu.br', 'oper1', 'Sandra Machado Silva', 'OPERADOR', '$2a$10$wtCOyqTrpkkiT1ITi3ukfeykkvL7LbnLBkOIgYwmJ8FWnbFEJMNFG'),
-  (TRUE, FALSE, '2026-05-25', 8, TRUE, NULL, 0, '2026-05-24 09:45:23.298464', 'USR52767', 'paulo.cunha@horizonte.edu.br', 'oper2', 'Paulo Roberto Cunha', 'OPERADOR', '$2a$10$wtCOyqTrpkkiT1ITi3ukfeykkvL7LbnLBkOIgYwmJ8FWnbFEJMNFG'),
-  (TRUE, FALSE, '2026-05-25', 9, TRUE, NULL, 0, '2026-05-24 09:45:23.299735', 'USR11396', 'tatiana.fonseca@horizonte.edu.br', 'oper3', 'Tatiana Fonseca', 'OPERADOR', '$2a$10$wtCOyqTrpkkiT1ITi3ukfeykkvL7LbnLBkOIgYwmJ8FWnbFEJMNFG'),
-  (TRUE, FALSE, '2026-08-22', 10, FALSE, 1, 0, '2026-05-24 09:45:23.301015', 'USR00010', 'ana.oliveira@horizonte.edu.br', 'prof1', 'Ana Silva Oliveira', 'PROFESSOR', '$2a$10$IguPI640xrqiBo1QQBxWVu9uKOX7/RKygSTYU4ZYXUbe5mUJtxNti'),
-  (TRUE, FALSE, '2026-05-25', 11, TRUE, 2, 0, '2026-05-24 09:45:23.30246', 'USR00011', 'bruno.lima@horizonte.edu.br', 'prof2', 'Bruno Costa Lima', 'PROFESSOR', '$2a$10$wtCOyqTrpkkiT1ITi3ukfeykkvL7LbnLBkOIgYwmJ8FWnbFEJMNFG'),
-  (TRUE, FALSE, '2026-05-25', 12, TRUE, 3, 0, '2026-05-24 09:45:23.304148', 'USR00012', 'carla.souza@horizonte.edu.br', 'prof3', 'Carla Mendes Souza', 'PROFESSOR', '$2a$10$wtCOyqTrpkkiT1ITi3ukfeykkvL7LbnLBkOIgYwmJ8FWnbFEJMNFG'),
-  (TRUE, FALSE, '2026-05-25', 13, TRUE, 4, 0, '2026-05-24 09:45:23.305758', 'USR00013', 'daniel.santos@horizonte.edu.br', 'prof4', 'Daniel Ferreira Santos', 'PROFESSOR', '$2a$10$wtCOyqTrpkkiT1ITi3ukfeykkvL7LbnLBkOIgYwmJ8FWnbFEJMNFG'),
-  (TRUE, FALSE, '2026-05-25', 14, TRUE, 5, 0, '2026-05-24 09:45:23.307215', 'USR00014', 'elena.alves@horizonte.edu.br', 'prof5', 'Elena Rodrigues Alves', 'PROFESSOR', '$2a$10$wtCOyqTrpkkiT1ITi3ukfeykkvL7LbnLBkOIgYwmJ8FWnbFEJMNFG'),
-  (TRUE, FALSE, '2026-05-25', 15, TRUE, 6, 0, '2026-05-24 09:45:23.308651', 'USR00015', 'fernando.pereira@horizonte.edu.br', 'prof6', 'Fernando Gomes Pereira', 'PROFESSOR', '$2a$10$wtCOyqTrpkkiT1ITi3ukfeykkvL7LbnLBkOIgYwmJ8FWnbFEJMNFG'),
-  (TRUE, FALSE, '2026-05-25', 16, TRUE, 7, 0, '2026-05-24 09:45:23.31139', 'USR00016', 'gabriela.costa@horizonte.edu.br', 'prof7', 'Gabriela Martins Costa', 'PROFESSOR', '$2a$10$wtCOyqTrpkkiT1ITi3ukfeykkvL7LbnLBkOIgYwmJ8FWnbFEJMNFG'),
-  (TRUE, FALSE, '2026-05-25', 17, TRUE, 8, 0, '2026-05-24 09:45:23.313296', 'USR00017', 'henrique.dias@horizonte.edu.br', 'prof8', 'Henrique Almeida Dias', 'PROFESSOR', '$2a$10$wtCOyqTrpkkiT1ITi3ukfeykkvL7LbnLBkOIgYwmJ8FWnbFEJMNFG'),
-  (TRUE, FALSE, '2026-05-25', 18, TRUE, 9, 0, '2026-05-24 09:45:23.315465', 'USR00018', 'isabela.nasc@horizonte.edu.br', 'prof9', 'Isabela Nascimento', 'PROFESSOR', '$2a$10$wtCOyqTrpkkiT1ITi3ukfeykkvL7LbnLBkOIgYwmJ8FWnbFEJMNFG'),
-  (TRUE, FALSE, '2026-05-25', 19, TRUE, 10, 0, '2026-05-24 09:45:23.316477', 'USR00019', 'jose.barbosa@horizonte.edu.br', 'prof10', 'José Carlos Barbosa', 'PROFESSOR', '$2a$10$wtCOyqTrpkkiT1ITi3ukfeykkvL7LbnLBkOIgYwmJ8FWnbFEJMNFG'),
-  (TRUE, FALSE, '2026-05-25', 20, TRUE, 11, 0, '2026-05-24 09:45:23.317406', 'USR00020', 'karen.vieira@horizonte.edu.br', 'prof11', 'Karen Lopes Vieira', 'PROFESSOR', '$2a$10$wtCOyqTrpkkiT1ITi3ukfeykkvL7LbnLBkOIgYwmJ8FWnbFEJMNFG'),
-  (TRUE, FALSE, '2026-05-25', 21, TRUE, 12, 0, '2026-05-24 09:45:23.318774', 'USR00021', 'lucas.freitas@horizonte.edu.br', 'prof12', 'Lucas Ramos Freitas', 'PROFESSOR', '$2a$10$wtCOyqTrpkkiT1ITi3ukfeykkvL7LbnLBkOIgYwmJ8FWnbFEJMNFG'),
-  (TRUE, FALSE, '2026-05-25', 22, TRUE, 13, 0, '2026-05-24 09:45:23.320152', 'USR00022', 'maria.cardoso@horizonte.edu.br', 'prof13', 'Maria Helena Cardoso', 'PROFESSOR', '$2a$10$wtCOyqTrpkkiT1ITi3ukfeykkvL7LbnLBkOIgYwmJ8FWnbFEJMNFG'),
-  (TRUE, FALSE, '2026-05-25', 23, TRUE, 14, 0, '2026-05-24 09:45:23.321288', 'USR00023', 'nelson.pinto@horizonte.edu.br', 'prof14', 'Nelson Teixeira Pinto', 'PROFESSOR', '$2a$10$wtCOyqTrpkkiT1ITi3ukfeykkvL7LbnLBkOIgYwmJ8FWnbFEJMNFG'),
-  (TRUE, FALSE, '2026-05-25', 24, TRUE, 15, 0, '2026-05-24 09:45:23.322417', 'USR00024', 'patricia.melo@horizonte.edu.br', 'prof15', 'Patricia Rocha Melo', 'PROFESSOR', '$2a$10$wtCOyqTrpkkiT1ITi3ukfeykkvL7LbnLBkOIgYwmJ8FWnbFEJMNFG'),
-  (TRUE, FALSE, '2026-08-22', 25, FALSE, NULL, 0, '2026-05-24 13:46:58.388538', 'USR90690', 'juan.pablo@horizonte.com.br', 'jpablo', 'Juan Pablo', 'OPERADOR', '$2a$10$qSp9Z6PKqGfFKvO5y/qS1O1arqUEdJS5DI3aBHntqiD4SulPsQykm');
+INSERT INTO public.usuario (
+    ativo,
+    bloqueado,
+    data_expiracao_senha,
+    primeiro_acesso,
+    tentativas_login,
+    data_cadastro,
+    codigo,
+    email,
+    login,
+    nome_completo,
+    role,
+    senha
+)
+SELECT
+    TRUE,
+    FALSE,
+    '2026-12-31',
+    FALSE,
+    0,
+    '2026-05-24 09:45:23.285864',
+    'COD' || n,
+    'usuario' || n || '@teste.com',
+    'usuario' || n,
+    'Usuario ' || n,
+    'ADMIN',
+    '$2a$10$wtCOyqTrpkkiT1ITi3ukfeykkvL7LbnLBkOIgYwmJ8FWnbFEJMNFG'
+FROM generate_series(1, 200) AS n;
 
 --
 -- Ajuste das sequences
@@ -268230,7 +268232,7 @@ SELECT pg_catalog.setval('public.turma_disciplina_professor_id_seq', 900, true);
 
 SELECT pg_catalog.setval('public.turma_id_seq', 120, true);
 
-SELECT pg_catalog.setval('public.usuario_id_seq', 25, true);
+SELECT pg_catalog.setval('public.usuario_id_seq', 200, true);
 
 
 COMMIT;

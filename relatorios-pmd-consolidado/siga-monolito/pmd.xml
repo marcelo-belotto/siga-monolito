@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="7.0.0" timestamp="2026-09-24T17:33:04.152">
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="7.0.0" timestamp="2026-10-17T14:29:43.594">
 <file name="/home/marcelo/Documentos/FATEC/TCC/HorizonteDoSaber-API/siga-monolito/src/main/java/com/poo/siga/SigaApplication.java">
 <violation beginline="7" endline="7" begincolumn="8" endcolumn="13" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga" class="SigaApplication" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
 The class 'SigaApplication' has a total cyclomatic complexity of 1 (highest 1).
@@ -209,29 +209,35 @@ The method 'deletar(Integer)' has a cyclomatic complexity of 1.
 </violation>
 </file>
 <file name="/home/marcelo/Documentos/FATEC/TCC/HorizonteDoSaber-API/siga-monolito/src/main/java/com/poo/siga/controller/NotaController.java">
-<violation beginline="22" endline="22" begincolumn="8" endcolumn="13" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.controller" class="NotaController" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
-The class 'NotaController' has a total cyclomatic complexity of 11 (highest 2).
+<violation beginline="25" endline="25" begincolumn="8" endcolumn="13" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.controller" class="NotaController" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+The class 'NotaController' has a total cyclomatic complexity of 14 (highest 2).
 </violation>
-<violation beginline="27" endline="27" begincolumn="47" endcolumn="61" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.controller" class="NotaController" method="listarPorTurma" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+<violation beginline="30" endline="30" begincolumn="47" endcolumn="61" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.controller" class="NotaController" method="listarPorTurma" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
 The method 'listarPorTurma(Integer)' has a cyclomatic complexity of 1.
 </violation>
-<violation beginline="32" endline="32" begincolumn="47" endcolumn="78" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.controller" class="NotaController" method="listarPorTurmaDisciplinaPeriodo" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
-The method 'listarPorTurmaDisciplinaPeriodo(Integer, Integer, Integer)' has a cyclomatic complexity of 1.
+<violation beginline="35" endline="35" begincolumn="47" endcolumn="72" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.controller" class="NotaController" method="listarPorTurmaEDisciplina" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+The method 'listarPorTurmaEDisciplina(Integer, Integer, Integer)' has a cyclomatic complexity of 1.
 </violation>
-<violation beginline="39" endline="39" begincolumn="47" endcolumn="61" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.controller" class="NotaController" method="listarPorAluno" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+<violation beginline="43" endline="43" begincolumn="47" endcolumn="67" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.controller" class="NotaController" method="listarPorTurmaEAluno" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+The method 'listarPorTurmaEAluno(Integer, Integer)' has a cyclomatic complexity of 1.
+</violation>
+<violation beginline="50" endline="50" begincolumn="47" endcolumn="61" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.controller" class="NotaController" method="listarPorAluno" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
 The method 'listarPorAluno(Integer)' has a cyclomatic complexity of 1.
 </violation>
-<violation beginline="44" endline="44" begincolumn="41" endcolumn="47" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.controller" class="NotaController" method="lancar" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+<violation beginline="55" endline="55" begincolumn="41" endcolumn="47" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.controller" class="NotaController" method="lancar" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
 The method 'lancar(NotaRequest, Authentication)' has a cyclomatic complexity of 2.
 </violation>
-<violation beginline="50" endline="50" begincolumn="41" endcolumn="50" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.controller" class="NotaController" method="atualizar" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+<violation beginline="61" endline="61" begincolumn="41" endcolumn="50" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.controller" class="NotaController" method="atualizar" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
 The method 'atualizar(Integer, Map&lt;String, Double&gt;, Authentication)' has a cyclomatic complexity of 2.
 </violation>
-<violation beginline="58" endline="58" begincolumn="48" endcolumn="62" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.controller" class="NotaController" method="mediaBimestral" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+<violation beginline="69" endline="69" begincolumn="48" endcolumn="62" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.controller" class="NotaController" method="mediaBimestral" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
 The method 'mediaBimestral(Integer, Integer, Integer, Integer)' has a cyclomatic complexity of 2.
 </violation>
-<violation beginline="66" endline="66" begincolumn="48" endcolumn="58" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.controller" class="NotaController" method="mediaAnual" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+<violation beginline="77" endline="77" begincolumn="48" endcolumn="58" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.controller" class="NotaController" method="mediaAnual" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
 The method 'mediaAnual(Integer, Integer, Integer)' has a cyclomatic complexity of 2.
+</violation>
+<violation beginline="86" endline="86" begincolumn="35" endcolumn="48" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.controller" class="NotaController" method="calcularMedia" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+The method 'calcularMedia(Integer, Integer, Integer, Integer)' has a cyclomatic complexity of 2.
 </violation>
 </file>
 <file name="/home/marcelo/Documentos/FATEC/TCC/HorizonteDoSaber-API/siga-monolito/src/main/java/com/poo/siga/controller/ProfessorController.java">
@@ -459,10 +465,10 @@ The method 'prePersist()' has a cyclomatic complexity of 2.
 <violation beginline="3" endline="3" begincolumn="8" endcolumn="12" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.model.enums" class="EspecialidadeProfessor" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
 The enum 'EspecialidadeProfessor' has a total cyclomatic complexity of 2 (highest 1).
 </violation>
-<violation beginline="12" endline="12" begincolumn="5" endcolumn="27" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.model.enums" class="EspecialidadeProfessor" method="EspecialidadeProfessor" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+<violation beginline="13" endline="13" begincolumn="5" endcolumn="27" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.model.enums" class="EspecialidadeProfessor" method="EspecialidadeProfessor" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
 The constructor 'EspecialidadeProfessor(String)' has a cyclomatic complexity of 1.
 </violation>
-<violation beginline="16" endline="16" begincolumn="19" endcolumn="31" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.model.enums" class="EspecialidadeProfessor" method="getDescricao" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+<violation beginline="17" endline="17" begincolumn="19" endcolumn="31" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.model.enums" class="EspecialidadeProfessor" method="getDescricao" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
 The method 'getDescricao()' has a cyclomatic complexity of 1.
 </violation>
 </file>
@@ -889,27 +895,30 @@ The method 'findOrThrow(Integer)' has a cyclomatic complexity of 1.
 </file>
 <file name="/home/marcelo/Documentos/FATEC/TCC/HorizonteDoSaber-API/siga-monolito/src/main/java/com/poo/siga/service/NotaService.java">
 <violation beginline="17" endline="17" begincolumn="8" endcolumn="13" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.service" class="NotaService" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
-The class 'NotaService' has a total cyclomatic complexity of 18 (highest 9).
+The class 'NotaService' has a total cyclomatic complexity of 19 (highest 9).
 </violation>
-<violation beginline="26" endline="26" begincolumn="31" endcolumn="56" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.service" class="NotaService" method="listarPorTurmaEDisciplina" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
-The method 'listarPorTurmaEDisciplina(Integer, Integer, Integer)' has a cyclomatic complexity of 1.
+<violation beginline="26" endline="26" begincolumn="31" endcolumn="64" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.service" class="NotaService" method="listarPorTurmaEDisciplinaEPeriodo" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+The method 'listarPorTurmaEDisciplinaEPeriodo(Integer, Integer, Integer)' has a cyclomatic complexity of 1.
 </violation>
-<violation beginline="32" endline="32" begincolumn="31" endcolumn="45" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.service" class="NotaService" method="listarPorAluno" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+<violation beginline="31" endline="31" begincolumn="31" endcolumn="51" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.service" class="NotaService" method="listarPorTurmaEAluno" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+The method 'listarPorTurmaEAluno(Integer, Integer)' has a cyclomatic complexity of 1.
+</violation>
+<violation beginline="36" endline="36" begincolumn="31" endcolumn="45" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.service" class="NotaService" method="listarPorAluno" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
 The method 'listarPorAluno(Integer)' has a cyclomatic complexity of 1.
 </violation>
-<violation beginline="37" endline="37" begincolumn="31" endcolumn="45" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.service" class="NotaService" method="listarPorTurma" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+<violation beginline="41" endline="41" begincolumn="31" endcolumn="45" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.service" class="NotaService" method="listarPorTurma" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
 The method 'listarPorTurma(Integer)' has a cyclomatic complexity of 1.
 </violation>
-<violation beginline="42" endline="42" begincolumn="25" endcolumn="31" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.service" class="NotaService" method="lancar" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+<violation beginline="46" endline="46" begincolumn="25" endcolumn="31" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.service" class="NotaService" method="lancar" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
 The method 'lancar(NotaRequest, String)' has a cyclomatic complexity of 1.
 </violation>
-<violation beginline="70" endline="70" begincolumn="25" endcolumn="34" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.service" class="NotaService" method="atualizar" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+<violation beginline="74" endline="74" begincolumn="25" endcolumn="34" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.service" class="NotaService" method="atualizar" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
 The method 'atualizar(Integer, Double, String)' has a cyclomatic complexity of 1.
 </violation>
-<violation beginline="86" endline="86" begincolumn="19" endcolumn="41" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.service" class="NotaService" method="calcularMediaBimestral" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+<violation beginline="90" endline="90" begincolumn="19" endcolumn="41" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.service" class="NotaService" method="calcularMediaBimestral" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
 The method 'calcularMediaBimestral(Integer, Integer, Integer, Integer)' has a cyclomatic complexity of 9.
 </violation>
-<violation beginline="108" endline="108" begincolumn="19" endcolumn="37" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.service" class="NotaService" method="calcularMediaAnual" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+<violation beginline="114" endline="114" begincolumn="19" endcolumn="37" rule="CyclomaticComplexity" ruleset="Design" package="com.poo.siga.service" class="NotaService" method="calcularMediaAnual" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
 The method 'calcularMediaAnual(Integer, Integer, Integer)' has a cyclomatic complexity of 4.
 </violation>
 </file>
