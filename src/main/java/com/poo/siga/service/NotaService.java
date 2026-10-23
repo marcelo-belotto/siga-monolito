@@ -38,6 +38,11 @@ public class NotaService {
         return notaRepository.findByTurmaId(turmaId).stream().map(NotaResponse::from).toList();
     }
 
+    @Transactional(readOnly = true)
+    public List<NotaResponse> listarPorTurmaEAluno(Integer turmaId, Integer alunoId) {
+        return notaRepository.findByTurmaIdAndAlunoId(turmaId, alunoId).stream().map(NotaResponse::from).toList();
+    }
+
     @Transactional
     public NotaResponse lancar(NotaRequest req, String usuarioLogin) {
         var turma = turmaRepository.findById(req.turmaId())

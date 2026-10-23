@@ -2,6 +2,8 @@ package com.poo.siga.controller;
 
 import com.poo.siga.dto.nota.*;
 import com.poo.siga.service.NotaService;
+
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -28,11 +30,18 @@ public class NotaController {
         return ResponseEntity.ok(service.listarPorTurma(turmaId));
     }
 
-    @GetMapping("/turma/{turmaId}/disciplina/{disciplinaId}/periodo/{periodo}")
+    @GetMapping("/turma/{turmaId}/disciplina/{disciplinaId}")
     public ResponseEntity<List<NotaResponse>> listarPorTurmaDisciplinaPeriodo(
             @PathVariable Integer turmaId, @PathVariable Integer disciplinaId,
-            @PathVariable Integer periodo) {
+            @RequestParam Integer periodo) {
         return ResponseEntity.ok(service.listarPorTurmaEDisciplina(turmaId, disciplinaId, periodo));
+    }
+
+    @GetMapping("/turma/{turmaId}/aluno/{alunoId}")
+    public ResponseEntity<List<NotaResponse>> listarPorTurmaEAluno(
+            @PathVariable Integer turmaId,
+            @PathVariable Integer alunoId) {
+        return ResponseEntity.ok(service.listarPorTurmaEAluno(turmaId, alunoId));
     }
 
     @GetMapping("/aluno/{alunoId}")
@@ -48,8 +57,8 @@ public class NotaController {
 
     @PutMapping("/{id}")
     public ResponseEntity<NotaResponse> atualizar(@PathVariable Integer id,
-                                                   @RequestBody Map<String, Double> body,
-                                                   Authentication auth) {
+            @RequestBody Map<String, Double> body,
+            Authentication auth) {
         return ResponseEntity.ok(service.atualizar(id, body.get("valor"),
                 auth != null ? auth.getName() : "sistema"));
     }
@@ -68,5 +77,18 @@ public class NotaController {
             @RequestParam Integer alunoId) {
         Double media = service.calcularMediaAnual(turmaId, disciplinaId, alunoId);
         return ResponseEntity.ok(Map.of("media", media != null ? media : 0.0));
+    }
+
+    @GetMapping("/boletim")
+    @Operation(summary = "Calcula a média bimestral ou anual")
+    public ResponseEntity<Double> calcularMedia(
+            @RequestParam Integer turmaId,
+            @RequestParam Integer disciplinaId,
+            @RequestParam Integer alunoId,
+            @RequestParam(required = false) Integer periodo) {
+        if (periodo != null) {
+            return ResponseEntity.ok(service.calcularMediaBimestral(turmaId, disciplinaId, alunoId, periodo));
+        }
+        return ResponseEntity.ok(service.calcularMediaAnual(turmaId, disciplinaId, alunoId));
     }
 }

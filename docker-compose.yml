@@ -13,7 +13,6 @@ services:
     volumes:
       - siga-pgdata:/var/lib/postgresql/data
       - ./DDL_dump.sql:/docker-entrypoint-initdb.d/1-DDL_dump.sql
-      - ./backup_inserts.sql:/docker-entrypoint-initdb.d/2-backup_inserts.sql
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${DB_USERNAME:-siga} -d sigadb"]
       interval: 10s
@@ -34,6 +33,7 @@ services:
       JWT_EXPIRATION: ${JWT_EXPIRATION:-1800000}
       SWAGGER_ENABLED: ${SWAGGER_ENABLED:-true}
       CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:8080}
+      JAVA_TOOL_OPTIONS: "-Xms512m -Xmx512m"
     depends_on:
       postgres:
         condition: service_healthy
