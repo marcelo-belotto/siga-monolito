@@ -6,11 +6,14 @@ import com.poo.siga.model.enums.SituacaoMatricula;
 import com.poo.siga.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -26,8 +29,14 @@ public class MatriculaService {
 
     @Transactional(readOnly = true)
     public Page<MatriculaResponse> listar(String nomeAluno, Integer turmaId, Integer anoLetivo,
-                                           SituacaoMatricula situacao, Pageable pageable) {
-        return matriculaRepository.buscarComFiltros(nomeAluno, turmaId, anoLetivo, situacao, pageable)
+            SituacaoMatricula situacao, Pageable pageable) {
+        Sort sort = pageable.getSort().isSorted() ? pageable.getSort() : Sort.unsorted();
+        if (sort.getOrderFor("id") == null) {
+            sort = sort.and(Sort.by("id"));
+        }
+        Pageable estavel = PageRequest.of(pageable.getPageNumber(), pageable.getPageSize(), sort);
+
+        return matriculaRepository.buscarComFiltros(nomeAluno, turmaId, anoLetivo, situacao, estavel)
                 .map(MatriculaResponse::from);
     }
 
@@ -54,7 +63,7 @@ public class MatriculaService {
         if (matriculaRepository.existsByAlunoIdAndAnoLetivoAndSituacao(
                 aluno.getId(), turma.getAnoLetivo(), SituacaoMatricula.ATIVA)) {
             throw new ResponseStatusException(HttpStatus.CONFLICT,
-                "Aluno já possui matrícula ativa neste ano letivo");
+                    "Aluno já possui matrícula ativa neste ano letivo");
         }
 
         var matricula = new Matricula();
@@ -84,7 +93,7 @@ public class MatriculaService {
         var m = findOrThrow(id);
         if (m.getSituacao() != SituacaoMatricula.ATIVA) {
             throw new ResponseStatusException(HttpStatus.CONFLICT,
-                "Somente matrículas ativas podem ser trancadas");
+                    "Somente matrículas ativas podem ser trancadas");
         }
         m.setSituacao(SituacaoMatricula.TRANCADA);
         m.setMotivoCancelamento(motivo);
@@ -104,7 +113,8 @@ public class MatriculaService {
         return MatriculaResponse.from(matriculaRepository.save(matricula));
         // var m = findOrThrow(id);
         // if (m.getSituacao() == SituacaoMatricula.CANCELADA) {
-        //     throw new ResponseStatusException(HttpStatus.CONFLICT, "Matrícula já cancelada");
+        // throw new ResponseStatusException(HttpStatus.CONFLICT, "Matrícula já
+        // cancelada");
         // }
         // m.setSituacao(SituacaoMatricula.CANCELADA);
         // m.setMotivoCancelamento(motivo);
@@ -115,17 +125,19 @@ public class MatriculaService {
     @Transactional
     public MatriculaResponse concluir(Integer id) {
         var matricula = findOrThrow(id);
-        if (matricula.getSituacao() != SituacaoMatricula.ATIVA && matricula.getSituacao() != SituacaoMatricula.TRANCADA) {
+        if (matricula.getSituacao() != SituacaoMatricula.ATIVA
+                && matricula.getSituacao() != SituacaoMatricula.TRANCADA) {
             throw new ResponseStatusException(HttpStatus.CONFLICT,
-                "Somente matrículas ativas ou trancadas podem ser concluídas");
+                    "Somente matrículas ativas ou trancadas podem ser concluídas");
         }
         matricula.setSituacao(SituacaoMatricula.CONCLUIDA);
         matricula.setDataCancelamento(LocalDate.now());
         return MatriculaResponse.from(matriculaRepository.save(matricula));
         // var m = findOrThrow(id);
-        // if (m.getSituacao() != SituacaoMatricula.ATIVA && m.getSituacao() != SituacaoMatricula.TRANCADA) {
-        //     throw new ResponseStatusException(HttpStatus.CONFLICT,
-        //         "Somente matrículas ativas ou trancadas podem ser concluídas");
+        // if (m.getSituacao() != SituacaoMatricula.ATIVA && m.getSituacao() !=
+        // SituacaoMatricula.TRANCADA) {
+        // throw new ResponseStatusException(HttpStatus.CONFLICT,
+        // "Somente matrículas ativas ou trancadas podem ser concluídas");
         // }
         // m.setSituacao(SituacaoMatricula.CONCLUIDA);
         // m.setDataCancelamento(LocalDate.now());
@@ -135,30 +147,32 @@ public class MatriculaService {
     @Transactional
     public MatriculaResponse reativar(Integer id) {
         var matricula = findOrThrow(id);
-        if (matricula.getSituacao() != SituacaoMatricula.CONCLUIDA && matricula.getSituacao() != SituacaoMatricula.TRANCADA) {
+        if (matricula.getSituacao() != SituacaoMatricula.CONCLUIDA
+                && matricula.getSituacao() != SituacaoMatricula.TRANCADA) {
             throw new ResponseStatusException(HttpStatus.CONFLICT,
-                "Somente matrículas concluídas ou trancadas podem ser reativadas");
+                    "Somente matrículas concluídas ou trancadas podem ser reativadas");
         }
         // Garante que o aluno não possui outra matrícula ATIVA no mesmo ano
         if (matriculaRepository.existsByAlunoIdAndAnoLetivoAndSituacao(
                 matricula.getAluno().getId(), matricula.getAnoLetivo(), SituacaoMatricula.ATIVA)) {
             throw new ResponseStatusException(HttpStatus.CONFLICT,
-                "Aluno já possui outra matrícula ativa neste ano letivo");
+                    "Aluno já possui outra matrícula ativa neste ano letivo");
         }
         matricula.setSituacao(SituacaoMatricula.ATIVA);
         matricula.setMotivoCancelamento(null);
         matricula.setDataCancelamento(null);
         return MatriculaResponse.from(matriculaRepository.save(matricula));
         // var m = findOrThrow(id);
-        // if (m.getSituacao() != SituacaoMatricula.CONCLUIDA && m.getSituacao() != SituacaoMatricula.TRANCADA) {
-        //     throw new ResponseStatusException(HttpStatus.CONFLICT,
-        //         "Somente matrículas concluídas ou trancadas podem ser reativadas");
+        // if (m.getSituacao() != SituacaoMatricula.CONCLUIDA && m.getSituacao() !=
+        // SituacaoMatricula.TRANCADA) {
+        // throw new ResponseStatusException(HttpStatus.CONFLICT,
+        // "Somente matrículas concluídas ou trancadas podem ser reativadas");
         // }
         // // Garante que o aluno não possui outra matrícula ATIVA no mesmo ano
         // if (matriculaRepository.existsByAlunoIdAndAnoLetivoAndSituacao(
-        //         m.getAluno().getId(), m.getAnoLetivo(), SituacaoMatricula.ATIVA)) {
-        //     throw new ResponseStatusException(HttpStatus.CONFLICT,
-        //         "Aluno já possui outra matrícula ativa neste ano letivo");
+        // m.getAluno().getId(), m.getAnoLetivo(), SituacaoMatricula.ATIVA)) {
+        // throw new ResponseStatusException(HttpStatus.CONFLICT,
+        // "Aluno já possui outra matrícula ativa neste ano letivo");
         // }
         // m.setSituacao(SituacaoMatricula.ATIVA);
         // m.setMotivoCancelamento(null);
@@ -171,18 +185,19 @@ public class MatriculaService {
         var turmaOrigem = turmaRepository.findById(req.turmaOrigemId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Turma de origem não encontrada"));
         var turmaDestino = turmaRepository.findById(req.turmaDestinoId())
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Turma de destino não encontrada"));
+                .orElseThrow(
+                        () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Turma de destino não encontrada"));
 
         if (turmaOrigem.getId().equals(turmaDestino.getId())) {
             throw new ResponseStatusException(HttpStatus.CONFLICT,
-                "A turma de origem e destino não podem ser iguais");
+                    "A turma de origem e destino não podem ser iguais");
         }
 
         // Busca alunos da turma origem (ATIVA ou CONCLUIDA)
         var matriculasOrigem = matriculaRepository.findByTurmaId(turmaOrigem.getId())
                 .stream()
                 .filter(m -> m.getSituacao() == SituacaoMatricula.ATIVA ||
-                             m.getSituacao() == SituacaoMatricula.CONCLUIDA)
+                        m.getSituacao() == SituacaoMatricula.CONCLUIDA)
                 .toList();
 
         int total = matriculasOrigem.size();

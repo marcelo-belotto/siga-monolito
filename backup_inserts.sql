@@ -16200,33 +16200,33 @@ COMMIT;
 -- Ajuste das sequences
 --
 
--- SELECT pg_catalog.setval('public.ano_letivo_id_seq', 6, true);
+ SELECT pg_catalog.setval('public.ano_letivo_id_seq', 6, true);
 
--- SELECT pg_catalog.setval('public.avaliacao_id_seq', 7200, false);
+ SELECT pg_catalog.setval('public.avaliacao_id_seq', 7200, false);
 
--- SELECT pg_catalog.setval('public.disciplina_id_seq', 9, true);
+ SELECT pg_catalog.setval('public.disciplina_id_seq', 9, true);
 
--- SELECT pg_catalog.setval('public.frequencia_id_seq', 25, true);
+ SELECT pg_catalog.setval('public.frequencia_id_seq', 25, true);
 
--- SELECT pg_catalog.setval('public.grade_horaria_id_seq', 3000, true);
+ SELECT pg_catalog.setval('public.grade_horaria_id_seq', 3000, true);
 
--- SELECT pg_catalog.setval('public.log_acesso_id_seq', 77, true);
+ SELECT pg_catalog.setval('public.log_acesso_id_seq', 77, true);
 
--- SELECT pg_catalog.setval('public.matricula_id_seq', 3500, true);
+ SELECT pg_catalog.setval('public.matricula_id_seq', 3500, true);
 
--- SELECT pg_catalog.setval('public.modelo_grade_aula_id_seq', 250, true);
+ SELECT pg_catalog.setval('public.modelo_grade_aula_id_seq', 250, true);
 
--- SELECT pg_catalog.setval('public.modelo_grade_id_seq', 10, true);
+ SELECT pg_catalog.setval('public.modelo_grade_id_seq', 10, true);
 
--- SELECT pg_catalog.setval('public.nota_id_seq', 252000, true);
+ SELECT pg_catalog.setval('public.nota_id_seq', 252000, true);
 
--- SELECT pg_catalog.setval('public.professor_id_seq', 16, true);
+ SELECT pg_catalog.setval('public.professor_id_seq', 16, true);
 
--- SELECT pg_catalog.setval('public.turma_disciplina_professor_id_seq', 900, true);
+ SELECT pg_catalog.setval('public.turma_disciplina_professor_id_seq', 900, true);
 
--- SELECT pg_catalog.setval('public.turma_id_seq', 120, true);
+ SELECT pg_catalog.setval('public.turma_id_seq', 120, true);
 
--- SELECT pg_catalog.setval('public.usuario_id_seq', 200, true);
+ SELECT pg_catalog.setval('public.usuario_id_seq', 200, true);
 
 
 

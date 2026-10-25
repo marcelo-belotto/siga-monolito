@@ -33,7 +33,7 @@ public class MatriculaController {
             @RequestParam(required = false) Integer turmaId,
             @RequestParam(required = false) Integer anoLetivo,
             @RequestParam(required = false) SituacaoMatricula situacao,
-            @PageableDefault(size = 50) Pageable pageable) {
+            @PageableDefault(size = 50, sort = "id") Pageable pageable) {
         return ResponseEntity.ok(service.listar(nomeAluno, turmaId, anoLetivo, situacao, pageable));
     }
 
